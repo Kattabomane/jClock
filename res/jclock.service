@@ -1,0 +1,12 @@
+[Unit]
+Description=jclock
+
+[Service]
+Type=notify
+ExecStart=~/dotnet/dotnet /home/kattabomane/jclock/jclock.dll
+# This environment variable is necessary when dotnet isn't loaded for the specified user.
+# To figure out this value, run 'env | grep DOTNET_ROOT' when dotnet has been loaded into your shell.
+Environment=DOTNET_ROOT=/usr/lib64/dotnet
+
+[Install]
+WantedBy=multi-user.target
